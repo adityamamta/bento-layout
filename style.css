@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Urbanist", sans-serif;
+}
+
+:root {
+    --bg-color: #CBD5E1;
+    --bg-color: rgba(0, 143, 94, .4);
+    --bg-color: rgb(153, 210, 190);
+    --green: #008F5E;
+    --dark-blue-500: #1E293B;
+    --dark-blue-800: #334155;
+    --gray: #475569;
+    --green-transparent: rgb(5, 111, 78, .06);
+    --white: white;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-inline: 2.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    margin-block: 6rem;
+    max-width: 112rem;
+    margin-inline: auto;
+    display: grid;
+    gap: 2.2rem;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas: 
+    "item1 item1 item1 item2 item2 item3 item3 item4 item4 item4"
+    "item1 item1 item1 item2 item2 item3 item3 item4 item4 item4"
+    "item5 item5 item5 item6 item6 item6 item6 item4 item4 item4"
+    "item5 item5 item5 item6 item6 item6 item6 item9 item9 item9"
+    "item7 item7 item7 item7 item8 item8 item8 item9 item9 item9"
+    "item7 item7 item7 item7 item8 item8 item8 item9 item9 item9";
+}
+.item {
+    position: relative;
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+.item:nth-child(1) {
+    grid-area: item1;
+    .up, .down {
+        border-radius: 1.2rem;
+        background-color: var(--white);
+        padding-inline: 1.8rem;
+    }
+    .up {
+        padding-top: 2rem;
+        padding-bottom: 2.2rem;
+        p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+        }
+        h4 {
+            font-size: 1.4rem;
+            color: var(--dark-blue-500);
+            margin-top: .4rem;
+            margin-bottom: 4.4rem;
+        }
+        img {
+            height: 3.2rem;
+        }
+    }
+    .down {
+        padding-block: 2rem;
+        /* border-top: .2rem dashed var(--bg-color); */
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            width: calc(100% - 2.4rem);
+            height: .2rem;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: 
+                    repeating-linear-gradient(
+                to right, 
+                transparent 0, 
+                transparent .5rem, 
+                var(--bg-color) .5rem, 
+                var(--bg-color) 1rem
+        );
+        }
+        .code {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .4rem;
+            span {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: var(--gray);
+                text-transform: uppercase;
+            }
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+.item:nth-child(2) {
+    grid-area: item2;
+    background-image: url(img/bg_forest.webp);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    padding-top: 2rem;
+    padding-inline: 1.8rem;
+    h1 {
+        font-size: 3.4rem;
+        line-height: 3.4rem;
+        font-weight: 700;
+        color: white;
+        -webkit-text-stroke: 1px var(--green-transparent);
+    }
+    .aa {
+        height: 5rem;
+        object-fit: contain;  
+        align-self: flex-end;
+        margin-bottom: 30%;
+    }
+    .pallete {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        left: 0;
+    }
+
+}
+.item:nth-child(3) {
+    grid-area: item3;
+}
+.item:nth-child(4) {
+    grid-area: item4;
+}
+.item:nth-child(5) {
+    grid-area: item5;
+}
+.item:nth-child(6) {
+    grid-area: item6;
+    background-color: var(--white);
+    display: grid;
+    place-items: center;
+    padding-top: 5rem;
+    padding-bottom: 4.4rem;
+    img {
+        height: 7.5rem;
+        width: auto;
+        margin-bottom: 1.2rem;
+    }
+    h3 {
+        font-size: 3.4rem;
+        color: var(--dark-blue-800);
+    }
+}
+.item:nth-child(7) {
+    grid-area: item7;
+}
+.item:nth-child(8) {
+    grid-area: item8;
+    background-image: url(img/background.webp);
+    background-size: cover;
+    background-position: center;
+    /* padding-inline: 10%; */
+    padding-block: 20%;
+    text-align: center;
+    h4 {
+        font-size: 3.4rem;
+        line-height: 110%;
+        color: var(--white);
+        -webkit-text-stroke: 1px var(--green-transparent);
+    }
+    img {
+        position: absolute;
+        height: 60%;
+        width: auto;
+        left: 0;
+        bottom: 5%;
+        transform: translateX(-52%);
+        z-index: 999;
+    }
+
+}
+.item:nth-child(9) {
+    grid-area: item9;
+}
+
+.item:nth-child(9), .item:nth-child(7), .item:nth-child(5), .item:nth-child(4), .item:nth-child(3) {
+    img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+.item:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    .up {
+        flex: 1;
+        display: grid;
+        img {
+            align-self: flex-end;
+        }
+    }
+}
+
+/* .item {
+    animation: sizer .6s ease;
+} */
+@keyframes sizer {
+    0% {
+        scale: 0;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader::after {
+    content: "";
+    width: 5rem;
+    height: 5rem;
+    border: 0.5rem solid var(--white);
+    border-top: 0.5rem solid var(--green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+/* responsive */
+
+@media (max-width: 991px) {
+    html {
+        font-size: 60%;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-template-areas: 
+        "item1 item1 item1 item2 item2 item3 item3"
+        "item1 item1 item1 item2 item2 item3 item3"
+        "item5 item5 item5 item6 item6 item6 item6"
+        "item5 item5 item5 item6 item6 item6 item6"
+        "item7 item7 item7 item7 item9 item9 item9"
+        "item7 item7 item7 item7 item9 item9 item9"
+        "item4 item4 item8 item8 item9 item9 item9"
+        "item4 item4 item8 item8 item9 item9 item9";
+    }
+    .item:nth-child(8) img {
+        height: 50%;
+        transform: translateX(-60%);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .grid-container {
+        gap: 1.6rem;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(11, 1fr);
+        grid-template-areas: 
+        "item1 item1 item1 item1 item2 item2 item2"
+        "item1 item1 item1 item1 item2 item2 item2"
+        "item5 item5 item5 item6 item6 item6 item6"
+        "item5 item5 item5 item6 item6 item6 item6"
+        "item7 item7 item7 item9 item9 item9 item9"
+        "item7 item7 item7 item9 item9 item9 item9"
+        "item8 item8 item8 item9 item9 item9 item9"
+        "item8 item8 item8 item9 item9 item9 item9"
+        "item4 item4 item4 item4 item3 item3 item3"
+        "item4 item4 item4 item4 item3 item3 item3"
+        "item4 item4 item4 item4 item3 item3 item3";
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 55%;
+    }
+    .grid-container {
+        gap: 1.6rem;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(29, 1fr);
+        grid-template-areas: 
+        "item1"
+        "item1"
+        "item1"
+        "item2"
+        "item2"
+        "item2"
+        "item3"
+        "item3"
+        "item3"
+        "item3"
+        "item4"
+        "item4"
+        "item4"
+        "item4"
+        "item5"
+        "item5"
+        "item5"
+        "item6"
+        "item6"
+        "item6"
+        "item7"
+        "item7"
+        "item8"
+        "item8"
+        "item8"
+        "item9"
+        "item9"
+        "item9"
+        "item9"
+        "item9";
+    }
+}
